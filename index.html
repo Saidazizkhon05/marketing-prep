@@ -3,527 +3,60 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Marketing – Exam Prep</title>
+<title>Exam Prep</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0f14;color:#f1f5f9;min-height:100vh}
-#site-brand{position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(13,15,20,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(192,132,252,.25);text-align:center;padding:10px 0;pointer-events:auto}
+#site-brand{position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(13,15,20,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(192,132,252,.25);text-align:center;padding:10px 0}
 #site-brand a{font-size:17px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
-#app{padding-top:45px}
-button{cursor:pointer;font-family:inherit}
-button:disabled{cursor:not-allowed;opacity:.5}
-#app{min-height:100vh}
-
-/* HOME */
-.home{min-height:100vh;background:linear-gradient(160deg,#0d0f14 0%,#130a1f 60%,#0d0f14 100%);display:flex;flex-direction:column;align-items:center;padding:36px 18px 60px}
-.home-inner{max-width:820px;width:100%}
-.hero{text-align:center;margin-bottom:34px}
-.hero-emoji{font-size:56px;margin-bottom:10px}
-.hero-title{font-size:30px;font-weight:800;background:linear-gradient(135deg,#c084fc,#f472b6,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
-.hero-sub{color:#64748b;font-size:14px;margin-bottom:18px}
-.hero-chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
-
-/* quick banner */
-.qb{background:linear-gradient(135deg,#2d1054,#1e0d3a);border:2px solid rgba(192,132,252,.3);border-radius:20px;padding:26px;margin-bottom:28px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
-.qb:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(192,132,252,.2);border-color:rgba(192,132,252,.55)}
-.qb-orb{position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:rgba(192,132,252,.08);border-radius:50%}
-.qb-orb2{position:absolute;bottom:-35px;left:40px;width:100px;height:100px;background:rgba(244,114,182,.06);border-radius:50%}
-.qb-row{display:flex;align-items:center;gap:16px;margin-bottom:12px}
-.qb-ico{font-size:38px}
-.qb-name{font-size:22px;font-weight:800;color:#fff}
-.qb-desc{color:rgba(255,255,255,.6);font-size:13px;margin-top:2px}
-.qb-tags{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
-.qb-tag{background:rgba(192,132,252,.18);color:#d8b4fe;padding:3px 12px;border-radius:9px;font-size:12px;font-weight:700}
-.qb-go{display:inline-block;background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff;border:none;border-radius:9px;padding:10px 28px;font-weight:800;font-size:14px}
-
-.sec-lbl{color:#475569;font-size:11px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:13px;padding-left:2px}
-.sec-wrap{margin-bottom:26px}
-
-/* slots */
-.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media(max-width:640px){.slots-grid{grid-template-columns:1fr 1fr}}
-.slot-card{background:rgba(255,255,255,.04);border:2px solid rgba(192,132,252,.25);border-radius:14px;padding:16px 12px 14px;cursor:pointer;transition:all .2s;text-align:center;position:relative;overflow:hidden}
-.slot-card:hover{transform:translateY(-2px);background:rgba(192,132,252,.08);border-color:rgba(192,132,252,.5)}
-.slot-topbar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c084fc,#f472b6)}
-.slot-num{font-size:10px;font-weight:700;color:#c084fc;letter-spacing:.5px;margin-bottom:3px}
-.slot-ico{font-size:22px;margin-bottom:3px}
-.slot-title{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:1px}
-.slot-sub{color:#475569;font-size:10px;margin-bottom:8px}
-.slot-score{font-size:10px;font-weight:700;padding:2px 9px;border-radius:6px;display:inline-block;margin-bottom:8px}
-.ss-none{background:rgba(255,255,255,.06);color:#475569}
-.ss-good{background:rgba(16,185,129,.15);color:#10b981}
-.ss-ok{background:rgba(245,158,11,.15);color:#f59e0b}
-.ss-bad{background:rgba(239,68,68,.15);color:#ef4444}
-.slot-btn{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff;border:none;border-radius:7px;padding:6px 0;font-weight:700;font-size:11px;width:100%}
-
-/* mode cards */
-.modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:480px){.modes-grid{grid-template-columns:1fr}}
-.mode-card{background:rgba(255,255,255,.04);border-radius:15px;padding:20px 16px;cursor:pointer;transition:all .2s;border:2px solid transparent;position:relative;overflow:hidden}
-.mode-card:hover{transform:translateY(-2px)}
-.mc-bar{position:absolute;top:0;left:0;right:0;height:4px;border-radius:15px 15px 0 0}
-.mc-ico{font-size:26px;margin-bottom:8px}
-.mc-name{font-size:16px;font-weight:700;color:#f1f5f9;margin-bottom:3px}
-.mc-range{color:#475569;font-size:11px;margin-bottom:9px}
-.mc-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.mc-chip{padding:2px 9px;border-radius:8px;font-size:10px;font-weight:600}
-.mc-btn{text-align:center;border-radius:8px;padding:8px 0;font-weight:700;font-size:13px;color:#fff}
-
-/* TEST */
-.test-screen{min-height:100vh;background:#0d0f14;display:flex;flex-direction:column}
-.topbar{background:#111318;border-bottom:1px solid #1e2130;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;gap:12px}
-.tb-left{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
-.back-btn{background:none;border:none;color:#64748b;font-size:20px;padding:5px 8px;border-radius:7px;flex-shrink:0}
-.back-btn:hover{background:#1e2130;color:#94a3b8}
-.tb-info{min-width:0}
-.tb-title{font-size:14px;font-weight:700;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tb-sub{font-size:11px;color:#475569;margin-top:1px}
-.tb-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:middle}
-.b-real{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.b-slot{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.b-quiz{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff}
-.b-prac{background:rgba(192,132,252,.25);color:#d8b4fe;border:1px solid #c084fc}
-.timer-block{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
-.timer-val{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:1px}
-.timer-rail{width:100px;height:4px;background:#1e2130;border-radius:3px;overflow:hidden}
-.timer-fill{height:100%;border-radius:3px;transition:width 1s linear,background 1s linear}
-.sub-btn{border:none;border-radius:8px;padding:8px 16px;font-weight:700;font-size:13px;flex-shrink:0}
-.sb-real,.sb-slot{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.sb-prac{background:#8b5cf6;color:#fff}
-
-.test-body{max-width:780px;width:100%;margin:0 auto;padding:22px 18px;flex:1}
-.qnav{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:22px}
-.qn{width:33px;height:33px;border-radius:7px;font-size:11px;font-weight:700;border:2px solid #1e2130;background:#111318;color:#475569;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .12s}
-.qn.p-cur{background:#8b5cf6;border-color:#a78bfa;color:#fff}
-.qn.p-ans{background:#4c1d95;border-color:#8b5cf6;color:#c4b5fd}
-.qn.v-cur{background:linear-gradient(135deg,#c084fc,#f472b6);border-color:#c084fc;color:#fff}
-.qn.v-ans{background:#2d1054;border-color:#c084fc;color:#e9d5ff}
-.qn.q-cur{background:linear-gradient(135deg,#f59e0b,#ef4444);border-color:#f59e0b;color:#fff}
-.qn.q-ans{background:#451a03;border-color:#f59e0b;color:#fde68a}
-
-.qbox{border-radius:16px;padding:26px;margin-bottom:18px;border:2px solid #1e2130;background:#111318}
-.qbox.v-q{background:linear-gradient(135deg,#130a1f,#111318);border-color:rgba(192,132,252,.2)}
-.qbox.quiz-q{background:linear-gradient(135deg,#1a1000,#111318);border-color:rgba(245,158,11,.2)}
-.q-meta{font-size:11px;font-weight:700;color:#475569;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.q-pill{font-size:9px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.4px}
-.pill-v{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.pill-quiz{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff}
-.pill-p{background:rgba(139,92,246,.25);color:#c4b5fd;border:1px solid #8b5cf6}
-.q-text{font-size:16px;line-height:1.72;color:#f1f5f9;font-weight:500}
-
-.answers{display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
-.ans-btn{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;background:#0d0f14;border:2px solid #1e2130;border-radius:12px;cursor:pointer;transition:all .13s;text-align:left;width:100%}
-.ans-btn:hover:not(.locked){border-color:#2e3347;background:#141720}
-.ans-btn.locked{cursor:default}
-.ans-letter{min-width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#1e2130;color:#475569;font-weight:700;font-size:13px;flex-shrink:0;transition:all .13s}
-.ans-text{font-size:14px;line-height:1.55;color:#94a3b8;padding-top:4px}
-.ans-btn.sel-p{background:#1e0f3a;border-color:#8b5cf6}
-.ans-btn.sel-p .ans-letter{background:#8b5cf6;color:#fff}
-.ans-btn.sel-p .ans-text{color:#e2e8f0}
-.ans-btn.sel-v{background:#1a0830;border-color:#c084fc}
-.ans-btn.sel-v .ans-letter{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.ans-btn.sel-v .ans-text{color:#e2e8f0}
-.ans-btn.q-correct{background:rgba(16,185,129,.08);border-color:#10b981}
-.ans-btn.q-correct .ans-letter{background:#10b981;color:#fff}
-.ans-btn.q-correct .ans-text{color:#6ee7b7}
-.ans-btn.q-wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
-.ans-btn.q-wrong .ans-letter{background:#ef4444;color:#fff}
-.ans-btn.q-wrong .ans-text{color:#fca5a5}
-
-.q-feedback{border-radius:13px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600}
-.q-feedback.correct{background:rgba(16,185,129,.1);border:2px solid #10b981;color:#6ee7b7}
-.q-feedback.wrong{background:rgba(239,68,68,.1);border:2px solid #ef4444;color:#fca5a5}
-.qfb-ico{font-size:22px}
-.quiz-next-btn{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;border:none;border-radius:10px;padding:11px 24px;font-weight:700;font-size:14px}
-
-.nav-row{display:flex;justify-content:space-between;gap:10px}
-.nav-prev{background:#1e2130;color:#e2e8f0;border:none;border-radius:10px;padding:11px 22px;font-weight:600;font-size:14px}
-.nav-next{background:#8b5cf6;color:#fff;border:none;border-radius:10px;padding:11px 22px;font-weight:600;font-size:14px}
-.nav-fin{color:#fff;border:none;border-radius:10px;padding:11px 22px;font-weight:700;font-size:14px}
-.nav-fin.v{background:linear-gradient(135deg,#c084fc,#f472b6)}
-.nav-fin.p{background:#10b981}
-
-/* RESULTS */
-.results{min-height:100vh;background:#0d0f14;padding:24px 18px}
-.res-inner{max-width:680px;margin:0 auto}
-.res-top{text-align:center;padding:32px 0 22px}
-.res-ico{font-size:54px;margin-bottom:8px}
-.res-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 12px;border-radius:7px;margin-bottom:10px;letter-spacing:.5px}
-.rb-real,.rb-slot{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff}
-.rb-quiz{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff}
-.rb-prac{background:rgba(139,92,246,.2);border:1px solid #8b5cf6;color:#a78bfa}
-.res-title{font-size:24px;font-weight:800;margin-bottom:5px}
-.res-sub{color:#475569;font-size:14px}
-.score-card{background:#111318;border-radius:20px;padding:28px;margin-bottom:16px;text-align:center;border:2px solid transparent}
-.score-pct{font-size:70px;font-weight:800;line-height:1;letter-spacing:-2px}
-.score-grade{font-size:20px;font-weight:700;margin:8px 0 20px}
-.score-stats{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:20px}
-.stat-v{font-size:28px;font-weight:800}
-.stat-l{color:#475569;font-size:12px;margin-top:2px}
-.score-bar-bg{background:#0d0f14;border-radius:8px;height:12px;overflow:hidden}
-.score-bar-fill{height:100%;border-radius:8px;transition:width .6s ease}
-.res-btns{display:flex;gap:11px;margin-bottom:11px}
-.btn-review{flex:1;background:#1e2130;color:#e2e8f0;border:none;border-radius:12px;padding:14px 0;font-weight:600;font-size:14px}
-.btn-retry{flex:1;color:#fff;border:none;border-radius:12px;padding:14px 0;font-weight:700;font-size:14px}
-.br-real,.br-slot{background:linear-gradient(135deg,#c084fc,#f472b6)}
-.br-quiz{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-.br-prac{background:#8b5cf6}
-.btn-home-out{width:100%;background:transparent;color:#475569;border:2px solid #1e2130;border-radius:12px;padding:12px 0;font-weight:600;font-size:14px}
-.btn-home-out:hover{border-color:#2e3347;color:#64748b}
-
-/* REVIEW */
-.review{min-height:100vh;background:#0d0f14;padding:22px 18px}
-.rev-inner{max-width:760px;margin:0 auto}
-.rev-hdr{display:flex;align-items:center;gap:12px;margin-bottom:24px}
-.rev-title{font-size:20px;font-weight:700}
-.rev-sub{color:#475569;font-size:12px}
-.rq{background:#111318;border-radius:14px;padding:20px;margin-bottom:13px;border:2px solid transparent}
-.rq-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px}
-.rq-num{color:#475569;font-size:12px;font-weight:600}
-.rq-tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:6px}
-.rq-text{font-size:14px;line-height:1.65;color:#e2e8f0;font-weight:500;margin-bottom:12px}
-.rq-opts{display:flex;flex-direction:column;gap:6px}
-.ro{display:flex;align-items:flex-start;gap:9px;border-radius:9px;padding:9px 12px;border:1.5px solid #1e2130;background:#0d0f14}
-.ro-l{font-weight:700;font-size:12px;min-width:20px;flex-shrink:0;color:#475569}
-.ro-t{font-size:13px;line-height:1.5;color:#64748b}
-.ro-ico{margin-left:auto;font-size:14px;flex-shrink:0}
-.ro.correct{background:rgba(16,185,129,.08);border-color:#10b981}
-.ro.correct .ro-l,.ro.correct .ro-t{color:#6ee7b7}
-.ro.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
-.ro.wrong .ro-l,.ro.wrong .ro-t{color:#fca5a5}
-.btn-back-rev{width:100%;background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff;border:none;border-radius:12px;padding:14px 0;font-weight:700;font-size:14px;margin-top:8px}
+.page{min-height:100vh;background:linear-gradient(160deg,#0d0f14 0%,#130a1f 60%,#0d0f14 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 18px 60px}
+.hero{text-align:center;margin-bottom:48px}
+.hero-emoji{font-size:60px;margin-bottom:14px}
+.hero-title{font-size:34px;font-weight:800;background:linear-gradient(135deg,#c084fc,#f472b6,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.hero-sub{color:#64748b;font-size:15px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;width:100%}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{border-radius:22px;padding:32px 28px;cursor:pointer;text-decoration:none;display:block;position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s;border:2px solid transparent}
+.card:hover{transform:translateY(-5px)}
+.card-m{background:linear-gradient(145deg,#1e0d3a,#2d1054);border-color:rgba(192,132,252,.3)}
+.card-m:hover{box-shadow:0 18px 50px rgba(192,132,252,.25);border-color:rgba(192,132,252,.6)}
+.card-a{background:linear-gradient(145deg,#0d1f3a,#0d2b54);border-color:rgba(96,165,250,.3)}
+.card-a:hover{box-shadow:0 18px 50px rgba(96,165,250,.25);border-color:rgba(96,165,250,.6)}
+.card-orb{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;opacity:.12}
+.card-m .card-orb{background:#c084fc}
+.card-a .card-orb{background:#60a5fa}
+.card-ico{font-size:44px;margin-bottom:14px}
+.card-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+.card-desc{color:rgba(255,255,255,.5);font-size:13px;margin-bottom:20px;line-height:1.5}
+.card-btn{display:inline-block;border:none;border-radius:10px;padding:10px 26px;font-weight:800;font-size:14px;color:#fff;cursor:pointer}
+.card-m .card-btn{background:linear-gradient(135deg,#c084fc,#f472b6)}
+.card-a .card-btn{background:linear-gradient(135deg,#60a5fa,#3b82f6)}
 </style>
 </head>
 <body>
 <div id="site-brand"><a href="https://saidaziz.uz" target="_blank">Saidaziz.uz</a></div>
-<div id="app"></div>
-<script>
-const ALL_Q=[{"q":"Marketing is the activity, set of ___________ and processes for creating, communicating, delivering & exchanging offerings that have value for customers, clients, partners & society?","a":["Utilities","Organizations","Activities","Institutions"],"correct":3},{"q":"The key term in the American Marketing Association’s definition of marketing is?","a":["Value","Loyalty","Demand","Exchange"],"correct":0},{"q":"Choose correct definition of Want?","a":["Benefits exchanged in a market","Needs directed to the product","Products with high perceived value","Wants backed by purchasing power"],"correct":1},{"q":"_______ is the act of obtaining a desired object from someone by offering something in return?","a":["Distribution","Promotion","Exchange","Selling"],"correct":2},{"q":"State of felt deprivation including physical, social, and individual one known as _____?","a":["Market","Need","Want","Demand"],"correct":1},{"q":"Marketers often use the term ________ to cover various groupings of customers?","a":["Market","Segment","Industry","Distribution channel"],"correct":0},{"q":"Good marketing is no accident but a result of careful planning and _____?","a":["Segmentation","Research","Positioning","Execution"],"correct":3},{"q":"Marketing is a process which aims at ________?","a":["Selling existing products","Mass production efficiency","The satisfaction of customer needs","Profit maximization only"],"correct":2},{"q":"The term marketing refers to _______?","a":["A process focused only on advertising and promotion","We have organized our business to satisfy the customer needs","A philosophy that stresses customer value and satisfaction","A process of producing goods at the lowest cost"],"correct":2},{"q":"Most individuals want Mercedes-Benz car, only few are able to buy this is an example of …?","a":["Need","Demand","Market","Want"],"correct":1},{"q":"The best possible definition of marketing science given by P.Kotler is _______?","a":["The art and science of choosing target markets and getting, keeping, and growing customers through creating, delivering, and communicating superior customer value","Marketing is the activity, set of institutions & processes for creating, communicating, delivering & exchanging offerings that have value for customers, clients, partners & society","A business philosophy that assumes customers will buy any available product if the price is low and distribution is wide","Marketing is the process by which companies create value for customers & build strong customer relationships in order to capture value from customers in return"],"correct":3},{"q":"A place where goods are bought and sold against the price consideration between the buyers and the sellers is called ______?","a":["Market","Exchange","Distribution channel","Industry"],"correct":0},{"q":"_______ involves transfer of ownership of the goods?","a":["Dealers","Selling","Fantasy","Allowance"],"correct":1},{"q":"________ is not a type of Marketing Concept?","a":["Marketing concept","Product concept","Production concept","The supplier concept"],"correct":3},{"q":"Marketing mix for products consists of______?","a":["4Ps","STP","7Ps","PLC"],"correct":0},{"q":"_____ are the key elements of promotion mix?","a":["Product Value, Service Value, Image Value","Consumer Markets, Business Markets, Government Markets, Global Markets","Advertising, Sales Promotion, Public Relations, Direct Marketing","Advertising, Sales Promotion, Public Relations, Personal Selling"],"correct":2},{"q":"_______is not a part of marketing mix?","a":["Place","Promotion","Product","Purpose"],"correct":3},{"q":"The term marketing mix describes _______?","a":["Dividing the market into various groups of customers with distinct characteristics","Separating the market into different groups of customers with distinct characteristics","a blending of strategic elements to satisfy specific target markets","Customer identification and to identify the customer’s tastes and preferences"],"correct":2},{"q":"The term marketing environment describes _______?","a":["A place where buyers and sellers exchange goods and services","a composite analysis of all environmental factors inside and outside the firm","A process of producing goods at the lowest cost","The art and science of choosing target markets and building profitable customer relationships"],"correct":1},{"q":"Which of the following marketing mix activity is most closely associated with newsletters, catalogues and invitations to organization-sponsored events?","a":["Promotion","Product","Price","Place"],"correct":0},{"q":"The following sets represents 4C’s of the marketing mix?","a":["Information, Persuasion, Reminder","Customer, cost, convenience, communication","Product, Price, Place, Promotion","Product, Promotion and Place"],"correct":1},{"q":"New product development starts with which one of the following steps of new product development?","a":["Idea generation","Commercialization","Test marketing","Idea screening"],"correct":0},{"q":"The 4Ps make up a typical marketing mix – Product, Price, Promotion and _____?","a":["Price","Promotion","Place","People"],"correct":2},{"q":"The value that is put for a product is known as ______?","a":["Place","Promotion","Process","Price"],"correct":3},{"q":"_____ refers to the point of sale?","a":["People","Place","Promotion","Product"],"correct":1},{"q":"____ is the communication link between the firm and the consumer?","a":["Product","Price","Promotion","Physical evidence"],"correct":2},{"q":"To which tool of marketing mix does Brand Name of product or service relate?","a":["Promotion","Physical evidence","Place","Product"],"correct":0},{"q":"Want for a specific product backed by an ability to pay is called _____?","a":["Exchange","Want","Need","Demand"],"correct":3},{"q":"Marketers use the terminology of ________ to describe the demand for products or services?","a":["Market share","Brand loyalty","Buying power","Customer value"],"correct":2},{"q":"Marketing management process is ________?","a":["A business philosophy that assumes customers will buy any available product if the price is low and distribution is wide","Marketing is the activity, set of institutions & processes for creating, communicating, delivering & exchanging offerings that have value for customers, clients, partners & society","Marketing is the process by which companies create value for customers & build strong customer relationships in order to capture value from customers in return","The art and science of choosing target markets and getting, keeping, and growing customers through creating, delivering, and communicating superior customer value"],"correct":3},{"q":"Which of the following refers to marketing channel?","a":["Distribution","Pricing","Branding","Promotion"],"correct":0},{"q":"_______ is a combination of quality, price and service?","a":["Customer loyalty","Customer Value","Customer gap","Market value"],"correct":1},{"q":"Marketing segmentation process is useful for___________?","a":["Consumer Markets, Government Markets, Global Markets, Business Markets","A blending of strategic elements to satisfy specific target markets","Consumer Markets, Business Markets, Government Markets, Global Markets","Customer identification, To know the customer’s tastes and preferences"],"correct":3},{"q":"In marketing the current process of known as_________ involves purchase from various sources and assembled at one place?","a":["Warehousing","Assembling","Transporting","Financing"],"correct":1},{"q":"__________ is the major objective of any marketing activity in the world?","a":["Allowance","Sales","Selling","Dealers"],"correct":2},{"q":"Which of the following is not an Exchange function of Marketing?","a":["After-sales service","Selling","Buying","Assembling"],"correct":0},{"q":"The key customer markets consist of ____________?","a":["Consumer Markets, Business Markets, Government Markets, Global Markets","A process focused only on advertising and promotion","Consumer Markets, Government Markets, Global Markets, Business Markets","Customer identification, To know the customer’s tastes and preferences"],"correct":2},{"q":"Which one of the following is a key to build lasting relationships with consumers?","a":["Customer loyalty","Production concept","Consumer products","Customer satisfaction"],"correct":3},{"q":"Transporting and storing goods is part of which of the following marketing channel functions?","a":["Marketing by non-salesperson","Physical Distribution Channel","Good communication skills","Territorial sales force"],"correct":1},{"q":"Which of the following statements is the most correct statement?","a":["Marketing is the activity, set of institutions & processes for creating, communicating, delivering & exchanging offerings that have value for customers, clients, partners & society","A business philosophy that assumes customers will buy any available product if the price is low and distribution is wide","The art and science of choosing target markets and getting, keeping, and growing customers through creating, delivering, and communicating superior customer value","Marketing is the process by which companies create value for customers & build strong customer relationships in order to capture value from customers in return"],"correct":0},{"q":"The ____ concept holds that consumers will favour products that offer the most in quality, performance and innovative features?","a":["Product","Selling","Production","Societal"],"correct":0},{"q":"______ are products bought by individuals and organizations for further processing or for use in conducting a business?","a":["Consumer products","Convenience products","Industrial products","Shopping products"],"correct":2},{"q":"When customer expectations regarding product quality, service quality, and value-based price are met or exceeded, _____ is created?","a":["Competitive pricing","customer satisfaction","Pricing decisions","Value-based pricing"],"correct":1},{"q":"If the company’s sales are slow down, and profits level off or decline. At which stage the company has reached?","a":["Growth","Introduction","Commercialization","Decline"],"correct":3},{"q":"Buying goods and services for further processing or for use in the production process refers to _________?","a":["Government markets","Consumer markets","Global markets","Business markets"],"correct":3},{"q":"Which is NOT the stage that customers go through in the process of adopting a new product?","a":["Culture","Trial","Awareness","Interest"],"correct":0},{"q":"The mental act, condition or habit of placing trust or confidence in another, shows which of the following options?","a":["Motivation","Belief","Perception","Attitude"],"correct":1},{"q":"What does this statement show “Trade of value between two parties”?","a":["Positioning","Segmentation","Transaction","Distribution"],"correct":2},{"q":"Which one of the following concepts is a useful philosophy in a situation when the product’s cost is too high and marketers look for ways to bring it down?","a":["Selling concept","Societal marketing concept","Product concept","Production concept"],"correct":3},{"q":"The buying process starts from which one of the following stages in which the buyer recognizes a problem or need?","a":["Need recognition","Purchase decision","Computer Software","Opinion leader"],"correct":0},{"q":"A firm has decided to localize its products and services to meet local market demands. Which one of the following approaches is a good approach for this segmentation?","a":["Psychographic","Geographic","Behavioral","Occasion-based"],"correct":1},{"q":"Customer’s evaluation of the difference between all the benefits and all the costs of a marketing offer relative to those of competing offers refers to which of the following options?","a":["Customer lifetime value","Customer gap","Customer perceived value","Customer loyalty"],"correct":2},{"q":"Which one of the following statements by a company chairman best reflects the marketing concept?","a":["Consumers will favor products that are available and highly affordable","A place where buyers and sellers exchange goods and services","We have organized our company operations to satisfy the customer needs","We have organized our business to satisfy the customer needs"],"correct":3},{"q":"This company is well known for Technology innovation, Great value and act as a game changer?","a":["Unilever","Samsung","Apple","Nestle"],"correct":2},{"q":"Social campaigns are generally examples of ________?","a":["Relationship marketing","Event Marketing","Direct marketing","Digital marketing"],"correct":1},{"q":"______ makes a service different from a product?","a":["Intangibility","Tangibility","Perishability","Inseparability"],"correct":0},{"q":"Which of the following is not a tangible dominant?","a":["Computer hardware","Soft drink","Investment Management","Furniture"],"correct":2},{"q":"Select name of the country having maximum percent of GDP attributed to services?","a":["Japan","United States","United Kingdom","Germany"],"correct":1},{"q":"______ is not an element of physical evidence?","a":["Equipment","Signage","Facility design","Employee Training"],"correct":3},{"q":"________ is not an element of People?","a":["Flow of activities","Employee behavior","Training","Customer contact"],"correct":0},{"q":"________ is the difference between customer expectations and perceptions?","a":["Service design gap","Customer Gap","Knowledge gap","Delivery gap"],"correct":1},{"q":"Which of the following is difficult to evaluate?","a":["Automobile","Soft drink","Computer software","Car repair"],"correct":3},{"q":"Intangibility, Perishability, Inseparability & Variability are the characteristics of ______?","a":["Services","Brands","Products","Markets"],"correct":0},{"q":"_______ is defined as the caring, individualized attention that the firm provides to its customers?","a":["Assurance","Responsiveness","Empathy","Tangibles"],"correct":2},{"q":"The following is not a type of essential service encounters?","a":["Face-to-face encounters","Service encounters","Phone encounters","Check in Encounters"],"correct":3},{"q":"Obvious and distinct characteristic of service is ____?","a":["Inseparability","Tangibility","Intangibility","Perishability"],"correct":2},{"q":"______is the main reason for difficulty in service?","a":["Intangibility","Perishability","Inseparability","Tangibility"],"correct":0},{"q":"All of the following are examples of services besides __________?","a":["Car repair","Computer Software","Banking","Haircutting"],"correct":1},{"q":"In this pricing strategy mostly services are sold at different prices by the same provider in different markets is known as ______?","a":["Price differentiation","Competitive pricing","Cost-plus pricing","Price skimming"],"correct":0},{"q":"Total customer value consists of all of the following components except _____?","a":["Service value","Personal Value","Product value","Image value"],"correct":1},{"q":"________is an example of intangible dominant?","a":["Automobile","Furniture","Teaching","Laptop"],"correct":2},{"q":"The essential service feature that reflects the connection between the service firm and its customer is called _______?","a":["Perishability","Homogeneity","Variability","Inseparability"],"correct":3},{"q":"_____ is mainly deals with the inability to inventory service?","a":["Durability","Perishability","Intangibility","Inseparability"],"correct":1},{"q":"Competitor intelligence should be gathered ______?","a":["After sales decline","Only during product launch","Continuously","Only before pricing decisions"],"correct":2},{"q":"Total customer value usually comprises _______?","a":["Product Value, Service Value, Image Value","Every business is a service business","Advertising, Sales Promotion, Public Relations, Personal Selling","Product Value, Image Value, Service Value"],"correct":3},{"q":"_______ refers to the exchange of goods or commodities against money or service?","a":["Sales","Promotion","Distribution","Exchange"],"correct":0},{"q":"_______is the process of making a product available to the end consumer or business?","a":["Pricing","Advertising","Promotion","Distribution"],"correct":3},{"q":"Which of the following statements indicated correctly?","a":["Marketing management is a broader concept and sales management is a part of marketing management","The art and science of choosing target markets and building profitable customer relationships","We trust that the marketing department can sell what we produce and satisfy customer needs","Since it was probably collected for some other purpose, it may be incomplete or wrong"],"correct":0},{"q":"Personal selling is used EXTENSIVELY in ___________?","a":["Standardized daily goods","Low-cost convenience goods","Complex and highly technical products","Impulse products"],"correct":2},{"q":"_______ is a group of people working together to achieve the objective of sales?","a":["Marketing channel","Sales Organization","Product line","Retail chain"],"correct":1},{"q":"_______ is the geographical area a sales person is assigned?","a":["Position","Quota","Brand","Territory"],"correct":3},{"q":"Most producers use _______ to bring their products to market or end users?","a":["Advertising agencies","Intermediaries","Suppliers only","Final consumers"],"correct":1},{"q":"__________is a distribution system in which the ultimate buyer acquires the title directly from the manufacturer of the product?","a":["Direct Distribution","Intensive distribution","Indirect distribution","Selective distribution"],"correct":0},{"q":"____________________ is products bought by individuals and organizations for further processing or for use in conducting a business?","a":["Convenience products","Specialty products","Industrial products","Consumer products"],"correct":2},{"q":"All of the following would be ways to segment within the category of psychographic segmentation EXCEPT?","a":["Values","Social class","Lifestyle","occupation"],"correct":3},{"q":"The __________________ is a person within a reference group who, because of special skills, knowledge, personality, or other characteristics, exerts influence on others?","a":["Initiator","opinion leader","Buyer","Decider"],"correct":1},{"q":"_______________ describes changes in an individual's behavior arising from experience?","a":["Motivation","Perception","Learning","Belief"],"correct":2},{"q":"Concerns that the manufacturers of harmful products such as tobacco have influence on lawmakers to the detriment of the public interest is used as evidence of which criticism of marketing?","a":["Too much political power","Knowledge of related markets","Customer Relationship Marketing","Needs directed to the product"],"correct":0},{"q":"In terms of execution styles, a family seated at the dinner table enjoying the advertised product would be an example of which of the following types of advertising?","a":["Slice of life","Testimonial evidence","Technical expertise","Fantasy"],"correct":0},{"q":"crucial intermediaries who purchase goods from manufacturers or wholesalers and sell them directly to end consumers?","a":["Facilitators","Dealers","Wholesalers","Brokers"],"correct":1},{"q":"The type of trade-promotion discount in which manufacturers agree to reduce the price to the retailer in exchange for the retailer's agreement to feature the manufacturer's products in some way is called?","a":["Rebate","Discount","allowance","Coupon"],"correct":2},{"q":"If a company wishes to test its positioning strategy, advertising, distribution, pricing, branding and packaging, and budget levels, it can do so during which of the following stages of the new-product development process?","a":["Commercialization","Idea screening","Product development","Test marketing"],"correct":3},{"q":"In which of the following market structures is the degree of control over the price of its product by a firm very high?","a":["Monopolistic competition","Perfect competition","Pure competition","Monopoly"],"correct":3},{"q":"The most logical budget setting method is found in the list below. Which is it?","a":["Affordable method","Objective-and-task method","Percentage-of-sales method","Competitive parity method"],"correct":1},{"q":"The choice between high markups and high volume is part of which of the following retailer marketing decisions?","a":["Product assortment decisions","Location decisions","Pricing decisions","Service decisions"],"correct":2},{"q":"All of the following factors can affect the attractiveness of a market segment EXCEPT?","a":["the probability of government monitoring","Structural attractiveness","Company objectives","Segment size"],"correct":0},{"q":"A company is in the _____ stage of the new product development process when the company develops the product concept into a physical product in order to assure that the product idea can be turned into a workable product?","a":["Commercialization","Concept testing","Test marketing","product development"],"correct":3},{"q":"The type of sales force structure in which the sales force sells along product lines is called?","a":["Customer sales force","product sales force","Territorial sales force","Market sales force"],"correct":1},{"q":"____ is screening new-product ideas in order to spot good ideas and drop poor ones as soon as possible?","a":["Test marketing","Business analysis","Idea screening","Concept testing"],"correct":2},{"q":"Setting the promotion budget so as to match the budgets of the competition is characteristic of which of the following budget methods?","a":["Competitive parity method","Affordable method","Objective-and-task method","Percentage-of-sales method"],"correct":0},{"q":"Technological advances, shifts in consumer tastes, and increased competition, all of which reduce demand for a product are typical of which stage in the PLC?","a":["Introduction stage","Development stage","decline stage","Maturity stage"],"correct":2},{"q":"Costs that do not vary with production or sales levels are called?","a":["fixed costs","Total costs","Average costs","Variable costs"],"correct":0},{"q":"The advantages of audience selectivity, no advertisement competition and personalization apply to which type of media?","a":["Outdoor advertising","Direct Mail","Radio","Newspapers"],"correct":1},{"q":"If a company were to make a product such as a suit of clothes and sold that product to a retailer, a company would have sold to the _______market?","a":["Government","Global","Consumer","reseller"],"correct":3},{"q":"_____ has the advantage of being high in selectivity; low cost, immediacy, and interactive capabilities?","a":["Television","Online","Radio","Newspapers"],"correct":1},{"q":"If Mark Mars pays Hershey Foods Corporation for the right to use their name on his line of T-shirts, then Mr. Mars is using which type of branding?","a":["Manufacturer brand","Co-brand","Individual brand","Licensed brand"],"correct":3},{"q":"The shrinking of distances due to technological advance such as computer and fax connections by telephone, are one characteristic of what new challenge to marketing?","a":["Rapid globalization","Relationship marketing","Demographic transition","Market segmentation"],"correct":0},{"q":"The practice of going after a large share of a smaller market or subsets of a few markets is called?","a":["Undifferentiated marketing","Mass marketing","concentrated marketing","Micromarketing"],"correct":2},{"q":"The goal of the marketing logistics system should be to provide?","a":["a targeted level of customer service at the least cost","A targeted level of customer service at lowest possible cost","Back Office set up where customer queries are answered","Every business is a service business"],"correct":0},{"q":"The process that turns marketing strategies and plans into marketing actions in order to accomplish strategic marketing objectives is called?","a":["Marketing control","Marketing analysis","Marketing implementation","Marketing research"],"correct":2},{"q":"occupation, and other statistics is called?","a":["Behavioral analysis","Geography","Psychographics","Demography"],"correct":3},{"q":"When producers, wholesalers, and retailers as a unified system, they comprise a?","a":["Horizontal marketing system","vertical marketing system","Franchise system","Conventional marketing channel"],"correct":1},{"q":"If an advertiser wants flexibility, timeliness, good local market coverage, broad acceptability and high believability, the advertiser will probably choose which of the following mass media type?","a":["Newspapers","Television","Direct mail","Magazines"],"correct":0},{"q":"A ____ is a name, term, sign, symbol, or design, or a combination of these that identifies the marker or seller of a product or service?","a":["Slogan","brand","Package","Logo"],"correct":1},{"q":"If a company (considering its options on the product/market expansion grid) chooses to move into different unrelated fields (from what it has ever done before) with new products as a means to stimulate growth, the company would be following which of the following marketing strategies?","a":["Market penetration","Concentrated marketing","diversification","Product development"],"correct":2},{"q":"If Honda Corporation uses its company name to cover such different products as its automobiles, lawn mowers, and motorcycles, it is practicing which of the following strategies?","a":["New brand strategy","Line extension strategy","Multi-brand strategy","brand extension strategy"],"correct":3},{"q":"When companies make marketing decisions by considering consumers wants and the long-run interests of the company, consumer, and the general population, they are practicing which of the following principles?","a":["Societal marketing","Product concept","Selling concept","Production concept"],"correct":0},{"q":"The course of a product's sales and profits over its lifetime is called?","a":["New product development","the product life cycle","Marketing mix","Market segmentation"],"correct":1},{"q":"influence might interact is called?","a":["Retail group","Marketing channel","Sales force","buying center"],"correct":3},{"q":"_____ is a person's distinguishing psychological characteristics that lead to relatively consistent and lasting responses to his or her own environment?","a":["Perception","Motivation","Personality","Belief"],"correct":2},{"q":"A ____ is any activity or benefit offered for sale that is essentially intangible and does not result in the ownership of anything?","a":["service","Brand","Product","Market"],"correct":0},{"q":"The _____ holds that consumers will favor products that are available and highly affordable (therefore, work on improving production and distribution efficiency)?","a":["Production concept","product concept","Marketing concept","Selling concept"],"correct":1},{"q":"When Coca-Cola and Nestle formed a joint venture to market a ready-to-drink coffee and tea worldwide, the type of marketing system that was formed would best be described as being?","a":["Franchise system","Direct distribution system","Conventional channel","horizontal marketing system"],"correct":3},{"q":"One of the most common problems with using internal database information is that?","a":["We trust that the marketing department can sell what we produce and satisfy customer needs","The data is almost always unsecured and therefore, suspect as to reliability","since it was probably collected for some other purpose, it may be incomplete or wrong","Consumers will favor products that offer the most quality, performance and innovative features"],"correct":2},{"q":"Customer Marketing is the same as?","a":["Product marketing","Mass marketing","Customer Relationship Marketing","Transaction marketing"],"correct":2},{"q":"A Call Centre activity is?","a":["Back Office set up where customer queries are answered","Door-to-door selling","Market research survey","Front office retail selling"],"correct":0},{"q":"The Targeted Group in Marketing means?","a":["When production should stop","How the price should be fixed","Where the product should be stored","To whom the sales should be directed"],"correct":3},{"q":"Price(P) is an important factor for effective marketing. What are the other P's?","a":["Branding, Packaging and Positioning","Product, Promotion and Place","People, Process and Physical evidence","Segmentation, Targeting and Positioning"],"correct":1},{"q":"Advertisements are required for?","a":["Lowering product quality","Eliminating competitors","Raising production capacity","Boosting the sales"],"correct":3},{"q":"Market Research is essential for?","a":["Making correct marketing decisions","Auditing tax returns","Manufacturing products","Setting employee salaries"],"correct":0},{"q":"Direct Marketing means?","a":["Mass media advertising","Face-to-face marketing","Marketing by non-salesperson","Indirect distribution"],"correct":1},{"q":"Indirect Marketing means?","a":["Personal selling","Direct sales call","Marketing by non-salesperson","Face-to-face selling"],"correct":2},{"q":"Customer Relationship process with the insurance company is influenced by?","a":["Factory layout","Attitudes of salespersons","Supplier credit terms","Warehouse size"],"correct":1},{"q":"Marketing is well related in?","a":["Monopoly market","Money market","Buyers' market","Reseller market"],"correct":2},{"q":"Market Survey means?","a":["Sales promotion","Product development","Customer service","Market Research"],"correct":3},{"q":"Service after sale is the function of?","a":["Customer relationship management","Inventory control","Price skimming","Sales forecasting only"],"correct":0},{"q":"One of the following is a target group for the marketing of educational loan?","a":["Wholesalers","Manufacturers","Retired people","Students"],"correct":3},{"q":"Various products designed by the company known as?","a":["Product mix","Product line","Service mix","Brand portfolio"],"correct":0},{"q":"Market Segmentation means?","a":["Separating the market into different groups of customers with distinct characteristics","Customer identification and to identify the customer’s tastes and preferences","Dividing the market into various groups of customers with distinct characteristics","A blending of strategic elements to satisfy specific target markets"],"correct":2},{"q":"Marketing information is given is which answer?","a":["Too much political power","Knowledge of related markets","The satisfaction of customer needs","On Continuous basis"],"correct":1},{"q":"A Prospect customer is best described in which answer?","a":["Evaluation of alternative","a potential customer","All the customers","Customer relationship management"],"correct":1},{"q":"A Mission Statement is described in which answer?","a":["Same as a budget","Same as a slogan","Same as a sales territory","same as targets"],"correct":3},{"q":"Telemarketing involves the following?","a":["good communication skills","Packaging skills","Inventory skills","Machine operating skills"],"correct":0},{"q":"Non-product selling means?","a":["Selling durable goods","Selling consumer products","selling services","Selling industrial products"],"correct":2},{"q":"Macro environment includes the following?","a":["Employees","Shareholders","Technology","Suppliers"],"correct":2},{"q":"Micro environment includes the following?","a":["Economic forces","Political forces","Technology","Customers"],"correct":3},{"q":"Marketing creates ____________ for goods and services?","a":["Demand","Market","Exchange","Want"],"correct":0},{"q":"Who is prospect customer?","a":["Consumer products","Potential customer","Government markets","Consumer markets"],"correct":1},{"q":"Target customer means the following?","a":["Intermediary","Old customer","Supplier","new customer"],"correct":3},{"q":"One of the following is not included in the 4 P's of Marketing?","a":["Promotion","Production","Product","Price"],"correct":1},{"q":"The buying process begins from which one of the following stages in which the buyer recognizes that competitive products or services should be evaluated?","a":["Evaluation of alternative","Information search","Need recognition","Post-purchase behavior"],"correct":0},{"q":"A company has decided to identify market demands based on age, gender, income, occupation characteristics. Thus, which one of the following approaches is a good approach for this segmentation?","a":["Geographic","Benefit-based","Demographic","Psychographic"],"correct":2},{"q":"The aspect that describes companies that focus on selling products rather than meeting customer needs?","a":["Customer loyalty","Relationship marketing","Market orientation","Marketing myopia"],"correct":3},{"q":"The following statements by company owner that best describes the marketing activities of the company?","a":["We trust that the marketing department can sell what we produce and satisfy customer needs","Since it was probably collected for some other purpose, it may be incomplete or wrong","Marketing management is a broader concept and sales management is a part of marketing management","The art and science of choosing target markets and building profitable customer relationships"],"correct":0},{"q":"Digital campaigns are commonly examples of _________?","a":["Societal marketing","Event marketing","Digital Marketing","Direct marketing"],"correct":2},{"q":"______ makes a product different from a service?","a":["Perishability","Visibility","Variability","Intangibility"],"correct":1},{"q":"Which of the following is a tangible dominant?","a":["Car repair","Teaching","Automobiles","Insurance"],"correct":2},{"q":"Choose name of the country having the best quality attributed to automobile products?","a":["Japan","China","United States","Germany"],"correct":3},{"q":"______ is the element of physical evidence?","a":["Equipment","Flow of activities","Employee training","Motivation"],"correct":0},{"q":"________ is the element of People participation?","a":["Layout","Teamwork","Equipment","Signage"],"correct":1},{"q":"________ the condition where the performance of product or service that matches expectation of a customer?","a":["Value-based pricing","Competitive pricing","Customer Satisfaction","Relationship Marketing"],"correct":2},{"q":"Which of the following is easy to evaluate?","a":["Banking","Furniture","Investment advice","Teaching"],"correct":1},{"q":"Charging customers with high prices for high quality products is known _________?","a":["Competitive parity pricing","Cost-plus pricing","Price discrimination","Price Skimming"],"correct":3},{"q":"Distinct characteristic of product is ____?","a":["Tangibility, Visibility, Texture,","Empathy, reliability, assurance","Variability, perishability, intangibility","Customer gap, service gap, quality gap"],"correct":0},{"q":"______is the main reason for ease in product?","a":["Inseparability","Tangibility","Perishability","Variability"],"correct":1},{"q":"All of the following are examples of products EXCEPT __________?","a":["Saloon","Soft drink","Furniture","Automobile"],"correct":0},{"q":"In this pricing strategy mostly products are sold for same prices by the same provider in same markets is known as ______?","a":["Cost-based pricing","Value-based pricing","Market penetration","Price discrimination"],"correct":3},{"q":"The essence of strategy is choosing what not to do was quoted by ______?","a":["Philip Kotler","Peter Drucker","Michael Porter","Theodore Levitt"],"correct":2},{"q":"Services are characterized by all of the following characteristics EXCEPT for________?","a":["Homogeneity","Perishability","Variability","Intangibility"],"correct":0},{"q":"________is an example of tangible dominant?","a":["Insurance","Soft drink","Teaching","Banking"],"correct":1},{"q":"The unique product characteristic that reflects the connection between the product manufacturing firm and its customer is called ______?","a":["Variability","Intangibility","Tangibility","Perishability"],"correct":2},{"q":"Personal selling has ________ ?","a":["Non-verbal communication","Mass communication","One way communication","Two Way Communication"],"correct":3},{"q":"Advertising element of marketing has ________?","a":["One Way Communication","Interactive communication","Personal communication","Two way communication"],"correct":0},{"q":"_______________ has contractual authority to sell a manufacturer's entire output?","a":["Retailers","Selling agents","Brokers","Dealers"],"correct":1},{"q":"The retail operation that provides moderate sales assistance and customer services (e.g., credit, returns) to customers who prefer some help but are willing to handle part of the buying process, bridging self-service and full-service?","a":["Automatic vending","Self-service retailing","Full-service retailing","limited-service retailing"],"correct":3},{"q":"The type of sales-promotion in which manufacturers agree to decrease the price to the customer products in is called?","a":["Coupon","Premium","discount","Rebate"],"correct":2},{"q":"If a firm wants to test advertising, distribution, pricing, branding and packaging, and budget levels, it can do so during which of the following stages of the new-product development process?","a":["Idea screening","Commercialization","Test marketing","Business analysis"],"correct":2},{"q":"The main marketing objective for the maturity stage of the PLC is what among the following mentioned options?","a":["Maintain brand loyalty","Create product awareness","Maximize market share","Harvest the product"],"correct":0},{"q":"The following market structures where the degree of control over the price of its product by a company very high?","a":["Pure competition","Monopoly","Perfect competition","Monopolistic competition"],"correct":1},{"q":"The logical budget setting method is known as?","a":["Affordable method","Percentage-of-sales method","Competitive parity method","Objective-and-task method"],"correct":3},{"q":"The optimal decision between high markups and high volume is in part of the following retailer marketing decisions?","a":["Product assortment decisions","Pricing decisions","Location decisions","Service decisions"],"correct":1},{"q":"The following features can affect the attractiveness of a market segment besides?","a":["Company objectives","Segment growth","Structural attractiveness","the probability of government monitoring"],"correct":3},{"q":"In which stage of the new product development process when the firm develops the product concept into a physical product?","a":["product development","Idea generation","Commercialization","Concept testing"],"correct":0},{"q":"The type of sales territory structure in which the sales force sells along territories is called?","a":["Customer sales force","Inside sales force","territorial sales force","Product sales force"],"correct":2},{"q":"The two-phase, early-stage NPD process that shapes a product idea based on user needs (development) and validates it with consumers (testing) before investing in full production?","a":["Commercialization","Product development","Idea screening","Concept development and testing"],"correct":3},{"q":"A strategic marketing budget approach that defines specific goals, determines the necessary tasks to achieve them, and estimates the costs of these tasks?","a":["Objective-and-task method","Competitive parity method","Percentage-of-sales method","Affordable method"],"correct":0},{"q":"The initial market launch, characterized by low sales, high marketing costs, and little to no competition of which stage in the PLC?","a":["Decline stage","Maturity stage","introduction stage","Growth stage"],"correct":2},{"q":"Costs that vary with production or sales levels are called?","a":["Fixed costs","variable costs","Sunk costs","Total costs"],"correct":1},{"q":"The benefits of advertisement competition and wide audience attention apply to which type of media?","a":["Television","Online","Direct mail","Radio"],"correct":0},{"q":"If a firm company were to make a product and sold that product to a wholesaler, a fiem would have sold to the _______market?","a":["Government","Consumer","business","Global"],"correct":2},{"q":"_____ has the benefit of being in selectivity and interactive abilities?","a":["Television","Radio","Direct mail","Newspapers"],"correct":1},{"q":"If Bradley Stevens pays Craft Foods Corporation for the right to use their name on his line of T-shirts, then Mr. Stevens is using which type of branding?","a":["Co-brand","Manufacturer brand","Private brand","Licensed brand"],"correct":3},{"q":"The technological development such as cloud technologies connections by any devices, are characteristics of what new issues to marketing?","a":["Technological advancement","Societal marketing","Rapid globalization","Brand licensing"],"correct":0},{"q":"The practice of going after a large share of a large market markets is called?","a":["Concentrated marketing","undifferentiated marketing","Differentiated marketing","Niche marketing"],"correct":1},{"q":"The purpose marketing intermediary must be to provide?","a":["A targeted level of customer service at the least cost","Every business is a service business","Back Office set up where customer queries are answered","a targeted level of customer service at lowest possible cost"],"correct":3},{"q":"The procedure that turns marketing strategies into specific marketing actions in order to accomplish strategic marketing goals is called?","a":["Marketing control","Marketing research","Marketing implementation","Marketing planning"],"correct":2},{"q":"The learning procedure of populations in terms of size, location, age, occupation, and other statistics is known?","a":["Behavioral analysis","Psychographics","Positioning","Demography"],"correct":3},{"q":"While manufacturers, wholesalers, and retailers as a unified system, that system known as?","a":["Horizontal marketing system","vertical marketing system","Direct marketing system","Conventional marketing channel"],"correct":1},{"q":"Advertising company wishes normal local market coverage, broad acceptability and high believability, the company will choose the following mass media type?","a":["Radio","Television","Newspapers","Direct mail"],"correct":2},{"q":"It acts as a primary, visual anchor for a brand, designed to foster instant recognition, differentiate from competitors, and evoke emotional connections?","a":["logo","Distribution channel","Service mix","Market penetration"],"correct":0},{"q":"The effective selling of a product or service in a specific market, and it is a measure of the amount of sales volume of an existing good or service compared to the total target market known as?","a":["market penetration","Diversification","Market development","Brand extension"],"correct":0},{"q":"If Sony company uses its company name to cover different products in its electronics, imaging and cameras, it is practicing which of the following strategies?","a":["New brand strategy","brand extension strategy","Line extension strategy","Multi-brand strategy"],"correct":1},{"q":"A firm make marketing decisions by considering consumers wants and the long-run interests of the company, consumer, and the general population, which of the following principles?","a":["Marketing myopia","Selling concept","Production concept","Societal marketing"],"correct":3},{"q":"The condition of a product's sales over its lifetime is called?","a":["Part of the control","Concept development and testing","the product life cycle (PLC)","Customer perceived value"],"correct":2},{"q":"influence might interact is known as?","a":["Retail group","Marketing channel","Sales force","buying center"],"correct":3},{"q":"A customer's distinctive psychological characteristics that lead to relatively consistent responses to customer's own environment?","a":["Motivation","Belief","Personality","Perception"],"correct":2},{"q":"Anything offered for sale that is essentially tangible and result in the ownership of anything?","a":["Marketing","product","Production","Selling"],"correct":1},{"q":"A customer-centric business philosophy focusing on identifying and satisfying customer needs better than competitors to achieve long-term profitability)?","a":["marketing concept","Production concept","Selling concept","Product concept"],"correct":0},{"q":"When Fujitsu Limited and Siemens company united to provide unique laptops worldwide, the type of marketing system that was formed would best be described as being?","a":["Franchise system","horizontal marketing system","Conventional channel","Vertical marketing system"],"correct":1},{"q":"One of the most common complications with using secondary data information is that?","a":["Consumers will favor products that offer the most quality, performance and innovative features","We have organized our company operations to satisfy the customer needs","The art and science of choosing target markets and building profitable customer relationships","the data is almost always unsecured and therefore, suspect as to reliability"],"correct":3},{"q":"Service Marketing is the same as?","a":["Telemarketing","Digital advertising","Relationship Marketing","Product marketing"],"correct":2},{"q":"A Call Centre service is most known in service as?","a":["Back Office set up where customer queries are answered","Wholesale distribution","Market research survey","Front office retail selling"],"correct":0},{"q":"A Target Group in Marketing science means?","a":["To whom the sales should be directed","Which supplier should be selected","Where the product should be stored","When production should stop"],"correct":0},{"q":"Price is critical component for effective marketing. What are the other P's?","a":["Segmentation, Targeting and Positioning","Cost, Convenience and Communication","Product, Promotion and Place","People, Process and Physical evidence"],"correct":2},{"q":"Advertising is needed for the activity of?","a":["Raising production capacity","Boosting the sales","Lowering product quality","Reducing distribution costs only"],"correct":1},{"q":"Market Research procedure is needed for the activity of?","a":["Part of the control","Knowledge of related markets","Making correct marketing decisions","Making proper marketing decisions"],"correct":3},{"q":"Direct Marketing activity is best known as?","a":["Face-to-face marketing","Online display advertising","Mass media advertising","Marketing by non-salesperson"],"correct":0},{"q":"Indirect Marketing is best known as?","a":["Direct sales call","Personal selling","Marketing by non-salesperson","Face-to-face selling"],"correct":2},{"q":"Customer Relationship with the Bank is influenced by?","a":["Warehouse size","Shareholder voting","Supplier credit terms","Attitudes of salespersons"],"correct":3},{"q":"Marketing is best suited in?","a":["Sellers' market","Buyers' market","Reseller market","Money market"],"correct":1},{"q":"Market Survey is widely used in?","a":["Market penetration","Sales promotion","Customer service","Market Research"],"correct":3},{"q":"Service after sale is not the function of what?","a":["Support team","Marketing staff","Service department","Sales department"],"correct":1},{"q":"The following is a target group for the marketing of loan from banks?","a":["All the customers","Retailers only","Suppliers only","Students"],"correct":0},{"q":"Various services designed by the company known as?","a":["Channel mix","Product mix","Service mix","Marketing mix"],"correct":2},{"q":"Market Segmenting process is usually known as?","a":["A composite analysis of all environmental factors inside and outside the firm","We have organized our company operations to satisfy the customer needs","Separating the market into different groups of customers with distinct characteristics","Dividing the market into various groups of customers with distinct characteristics"],"correct":2},{"q":"Marketing information system is given in the following answer?","a":["Knowledge of related markets","Flow of activities","The satisfaction of customer needs","Too much political power"],"correct":0},{"q":"A Prospect is best described in which answer?","a":["Customer perceived value","Evaluation of alternative","All the customers","a potential customer"],"correct":3},{"q":"A monitoring process of strategic plan is best described in which answer?","a":["Part of implementation","part of the control","Part of segmentation","Part of pricing"],"correct":1},{"q":"Direct mail involves the following?","a":["Online banners","Newspaper ads","Television spots","door-to-door campaigns"],"correct":3},{"q":"A sales strategy that encourages customers to purchase additional, complementary products or services related to their original purchase?","a":["Brand licensing","Market skimming","cross-selling services","Upward pricing"],"correct":2},{"q":"Macro environment includes?","a":["Economy","Employees","Dealers","Customers"],"correct":0},{"q":"Micro environment includes?","a":["Demography","Supplier","Culture","Technology"],"correct":1},{"q":"A sales personnel creates ____________ for goods and services?","a":["Demand","Satisfaction","Supply","Value"],"correct":2},{"q":"The prospect customer known as?","a":["Potential customer","Customer satisfaction","Buying center","Information search"],"correct":0},{"q":"Existing customer means the following?","a":["Prospect customer","old customer","Competitor","New customer"],"correct":1},{"q":"The following is not included in the 4 P's of Marketing?","a":["Place","Product","Price","Population"],"correct":3},{"q":"The buying process starts from which one of the following stages in which the buyer recognizes a problem or need?","a":["Industrial products","Target market","Target Group","Need recognition"],"correct":3},{"q":"A firm has decided to localize its products and services to meet local market demands. Which one of the following approaches is a good approach for this segmentation?","a":["Occasion-based","Geographic","Psychographic","Behavioral"],"correct":1},{"q":"It drives loyalty and revenue by enabling personalized marketing, audience segmentation, and automated, targeted campaigns?","a":["Customer relationship management","Production planning","Price skimming","Inventory control"],"correct":0},{"q":"Which one of the following statements by a company CEO truly represents the marketing concept?","a":["A place where buyers and sellers exchange goods and services","Consumers will favor products that are available and highly affordable","We have organized our company operations to satisfy the customer needs","We have organized our business to satisfy the customer needs"],"correct":2},{"q":"Social based campaigns are generally examples of _________?","a":["Event Marketing","Relationship marketing","Digital marketing","Direct marketing"],"correct":0},{"q":"What aspect that makes a service diverse from a product?","a":["Perishability","Inseparability","Variability","Intangibility"],"correct":3},{"q":"The following is not a tangible?","a":["Furniture","Automobile","Capital Management","Equipment"],"correct":2},{"q":"Which is not an element of physical characteristic?","a":["Equipment","Personnel Training","Lighting","Signage"],"correct":1},{"q":"Which one is not an element of individuals?","a":["Teamwork","Training","Flow of activities","Customer contact"],"correct":2},{"q":"The difference between customer expectations and perceptions occur?","a":["Service design gap","Customer Gap","Knowledge gap","Communication gap"],"correct":1},{"q":"The following is hard to estimate?","a":["Attitudes of salespersons","Customer perceived value","Flow of activities","Car repair process"],"correct":3},{"q":"Intangibility, Perishability, Inseparability and Variability are the characteristics of ______?","a":["Services","Brands","Markets","Channels"],"correct":0},{"q":"_______ is defined as the caring, customized care that the firm provides to its customers?","a":["Tangibles","Reliability","Empathy","Assurance"],"correct":2},{"q":"Customers charged at different prices for the same service is known as _________?","a":["Customer satisfaction","Price discrimination","Personnel Training","Computer Software"],"correct":1},{"q":"Which of the following is not a type of Service encounters?","a":["Check in Encounters","Face-to-face encounters","Service encounters","Remote encounters"],"correct":0},{"q":"Distinct characteristic of services is ____?","a":["Variability","Tangibility","Inseparability","Intangibility"],"correct":3},{"q":"That is the main reason for complexity in service determined in which statement?","a":["Intangibility","Inseparability","Perishability","Tangibility"],"correct":0},{"q":"All of the following are examples of services EXCEPT __________?","a":["Banking","Haircutting","Computer Software","Teaching"],"correct":2},{"q":"The pricing strategy mostly services are sold at different prices by the same provider in different markets is known as ______?","a":["Competitive pricing","Price differentiation","Cost-plus pricing","Price skimming"],"correct":1},{"q":"Total customer value comprises of the following components besides the following _____?","a":["Image value","Product value","Service value","Personal Value"],"correct":3},{"q":"Every business is a service business was quoted by whom______?","a":["Abraham Maslow","Theodore Levitt","Michael Porter","Philip Kotler"],"correct":3},{"q":"Products are characterized by the following characteristic ________?","a":["Tangibility","Perishability","Variability","Inseparability"],"correct":0},{"q":"That is an example of intangible aspect?","a":["Automobile","Furniture","Education","Equipment"],"correct":2},{"q":"The unique service characteristic that reflects the interconnection between the service firm and its customer is called ______?","a":["Perishability","Inseparability","Homogeneity","Intangibility"],"correct":1},{"q":"The aspect that deals with the inability to keep service for later use purposes?","a":["Inseparability","Perishability","Variability","Durability"],"correct":1},{"q":"Competitor data should be collected?","a":["On Continuous basis","Only during recession","Only once a year","Only before advertising"],"correct":0},{"q":"Total customer value comprises the following?","a":["Advertising, Sales Promotion, Public Relations, Personal Selling","Every business is a service business","Product Value, Image Value, Service Value","Product Value, Service Value, Image Value"],"correct":2},{"q":"The exchange of products or commodities alongside money or service?","a":["Distribution","Promotion","Marketing","Sales"],"correct":3},{"q":"The procedure of making a product available to the final consumer or business?","a":["Distribution","Pricing","Promotion","Branding"],"correct":0},{"q":"Applying the personal selling component of a firm’s marketing program known as?","a":["Marketing research","Sales management","Public relations","Advertising management"],"correct":1},{"q":"The following statements specified appropriately?","a":["We trust that the marketing department can sell what we produce and satisfy customer needs","The art and science of choosing target markets and building profitable customer relationships","Since it was probably collected for some other purpose, it may be incomplete or wrong","Marketing management is a broader concept and sales management is a part of marketing management"],"correct":3},{"q":"Personal selling is practically used widely in?","a":["Low-cost convenience goods","Standardized daily goods","Complex and highly technical products","Mass-market groceries"],"correct":2},{"q":"Offline selling has ________ ?","a":["Warehousing Channel","Public Relations","Direct Communication","Digital Marketing"],"correct":2},{"q":"Online selling element of marketing has ________?","a":["Affordable method","Direct Communication","Selective Distribution","Cross-selling services"],"correct":1},{"q":"________ a group of individuals working together to achieve the objective of sales?","a":["Retail chain","Marketing channel","Product line","Sales Organization"],"correct":3},{"q":"_______ is the geographical sector a sales personnel is delegated?","a":["Territory","Position","Segment","Brand"],"correct":0},{"q":"Majority of manufacturers do use _______ to bring their products to market or final users?","a":["Intermediaries","Competitors","Final consumers","Suppliers only"],"correct":0},{"q":"A high-level, strategy where a manufacturer grants a single intermediary (distributor or retailer) the sole rights to sell products in a specific geographic territory?","a":["Intensive distribution","Indirect distribution","Exclusive Distribution","Direct distribution"],"correct":2},{"q":"items purchased by individuals or households for personal use rather than business production?","a":["Reseller products","Consumer products","Raw materials","Industrial products"],"correct":1},{"q":"The current element combines behavioral science with strategy to target consumers based on psychological profiles rather than just demographics?","a":["Belief","Perception","Learning","personality"],"correct":3},{"q":"The social, professional, or aspirational groups that shape a consumer's attitudes, values, and purchasing behaviors?","a":["reference group","Buying center","Sales force","Distribution channel"],"correct":0},{"q":"the process by which consumers select, organize, and interpret information to form a meaningful picture of a brand, product, or service?","a":["Personality","Perception","Motivation","Learning"],"correct":1},{"q":"The saturation of society with advertising that degrades, cultural values, norms, and aesthetics known in marketing as?","a":["Planned obsolescence","High-pressure selling","Cultural pollution","Too much political power"],"correct":2},{"q":"In terms of execution styles, a family seated at the supper table enjoying the advertised product would be an example of which of the following types of advertising?","a":["Scientific evidence","Testimonial evidence","Fantasy","Slice of life"],"correct":3},{"q":"A strategic purchasing professionals responsible for acquiring goods, services, and materials (e.g., promotional materials, agency services, software) necessary for marketing operations?","a":["Dealers","Selling agents","Brokers","Purchasing agents"],"correct":3},{"q":"A marketing strategy involving setting an initially low price for a new product or service to quickly attract customers, build market share, and encourage trial, often in highly competitive markets?","a":["penetration pricing","Premium pricing","Value pricing","Competitive pricing"],"correct":0},{"q":"The typical method of retail operation used by supermarkets and catalog showrooms is called?","a":["Automatic vending","self-service retailing","Direct selling","Full-service retailing"],"correct":1},{"q":"The term marketing environment is well described in which statement _______?","a":["A place where buyers and sellers exchange goods and services","The art and science of choosing target markets and building profitable customer relationships","a composite analysis of all environmental factors inside and outside the firm","A process of producing goods at the lowest cost"],"correct":2},{"q":"Promotion decision involves _______?","a":["Information, Persuasion, Influence","Information, Persuasion, Reminder","Product, Price, Place, Promotion","Tangibility, Visibility, Texture,"],"correct":0},{"q":"Advertising, PR, Personal selling, Sales promotion, these are also termed as elements of a ______?","a":["Marketing mix","Promotion Mix","Distribution mix","Service mix"],"correct":1},{"q":"Place in marketing is also known as _____?","a":["Advertising, Sales Promotion, Public Relations, Personal Selling","Product Value, Service Value, Image Value","Product, Price, Place, Promotion","physical distribution, channel of distribution, intermediary"],"correct":3},{"q":"Which of the following refers to marketing channel?","a":["Advertising","Promotion","Distribution","Pricing"],"correct":2},{"q":"A business philosophy prioritizing the identification and fulfillment of customer needs to achieve long-term profitability?","a":["Production orientation","Product orientation","Supplier orientation","Market orientation"],"correct":3},{"q":"Marketing segmenting process is broadly used for___________?","a":["Customer identification and to identify the customer’s tastes and preferences","A blending of strategic elements to satisfy specific target markets","Dividing the market into various groups of customers with distinct characteristics","Separating the market into different groups of customers with distinct characteristics"],"correct":0},{"q":"The main purpose of marketing activity around the world?","a":["Supply","Selling","Promotion","Radio"],"correct":1},{"q":"The focus is on social concern in marketing is characteristic of the _________ which marketing philosophy?","a":["Selling concept","Marketing myopia","Societal marketing","Product concept"],"correct":2},{"q":"The strategic storage, management, and handling of products within the distribution network to ensure cost-effective and timely delivery to customers of which marketing channel functions?","a":["Retail channel","Transportation channel","Warehousing Channel","Promotion channel"],"correct":2}];
-const LETTERS=['A','B','C','D','E'];
-const TSEC=45*60;
-const GRP_SIZE=25;
-const SLOT_COUNT=10;
-const GROUPS=[];
-for(let i=0;i<ALL_Q.length;i+=GRP_SIZE)GROUPS.push(ALL_Q.slice(i,i+GRP_SIZE));
-const PAL=['#c084fc','#f472b6','#fb923c','#34d399','#60a5fa','#a78bfa','#f87171','#4ade80','#fbbf24','#e879f9','#2dd4bf','#f472b6'];
-
-function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
-function rnd25(){return shuffle([...ALL_Q]).slice(0,25);}
-function shuffleQ(q){const n=q.a.length;const idx=shuffle([...Array(n).keys()]);return{q:q.q,a:idx.map(i=>q.a[i]),ci:idx.indexOf(q.correct)};}
-function prep(pool){return shuffle(pool).map(shuffleQ);}
-function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
-function tc(t){return t>600?'#22c55e':t>180?'#f59e0b':'#ef4444'}
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function render(){document.getElementById('app').innerHTML=build();}
-function build(){
-  if(ST.screen==='home')return buildHome();
-  if(ST.screen==='test')return buildTest();
-  if(ST.screen==='results')return buildResults();
-  if(ST.screen==='review')return buildReview();
-  return '';
-}
-
-let ST={screen:'home',mode:'practice',grpIdx:null,slotIdx:null,shuffled:[],cur:0,sel:{},timeLeft:TSEC,score:null,timer:null,quizAnswered:false,quizSelected:-1};
-const slotScores=new Array(SLOT_COUNT).fill(null);
-
-function buildHome(){
-  const slots=Array.from({length:SLOT_COUNT},(_,i)=>{
-    const sc=slotScores[i];
-    let lbl,cls;
-    if(!sc){lbl='Not attempted';cls='ss-none';}
-    else{const p=Math.round(sc.c/sc.t*100);lbl=`${sc.c}/${sc.t} — ${p}%`;cls=p>=75?'ss-good':p>=60?'ss-ok':'ss-bad';}
-    return `<div class="slot-card" onclick="startSlot(${i})">
-      <div class="slot-topbar"></div>
-      <div class="slot-num">SLOT #${i+1}</div>
-      <div class="slot-ico">🎲</div>
-      <div class="slot-title">Exam ${i+1}</div>
-      <div class="slot-sub">25 random · 45 min</div>
-      <div class="slot-score ${cls}">${lbl}</div>
-      <button class="slot-btn">Start →</button>
-    </div>`;
-  }).join('');
-
-  const practice=GROUPS.map((g,i)=>{
-    const c=PAL[i%PAL.length],s=i*GRP_SIZE+1,e=s+g.length-1;
-    return `<div class="mode-card" onclick="startPractice(${i})" style="border-color:${c}30"
-      onmouseover="this.style.background='${c}10'" onmouseout="this.style.background=''">
-      <div class="mc-bar" style="background:${c}"></div>
-      <div class="mc-ico">📋</div>
-      <div class="mc-name">Practice ${i+1}</div>
-      <div class="mc-range">Q${s}–Q${e}</div>
-      <div class="mc-chips">
-        <span class="mc-chip" style="background:${c}22;color:${c}">${g.length} questions</span>
-        <span class="mc-chip" style="background:rgba(255,255,255,.06);color:#64748b">⏱ 45 min</span>
-      </div>
-      <div class="mc-btn" style="background:${c}">Start →</div>
-    </div>`;
-  }).join('');
-
-  const quiz=GROUPS.map((g,i)=>{
-    const s=i*GRP_SIZE+1,e=s+g.length-1;
-    return `<div class="mode-card" onclick="startQuiz(${i})" style="border-color:#f59e0b30"
-      onmouseover="this.style.background='rgba(245,158,11,.07)'" onmouseout="this.style.background=''">
-      <div class="mc-bar" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div>
-      <div class="mc-ico">⚡</div>
-      <div class="mc-name">Quiz ${i+1}</div>
-      <div class="mc-range">Q${s}–Q${e} · instant feedback</div>
-      <div class="mc-chips">
-        <span class="mc-chip" style="background:rgba(245,158,11,.2);color:#f59e0b">${g.length} questions</span>
-        <span class="mc-chip" style="background:rgba(255,255,255,.06);color:#64748b">No timer</span>
-      </div>
-      <div class="mc-btn" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">Start Quiz →</div>
-    </div>`;
-  }).join('');
-
-  return `<div class="home"><div class="home-inner">
-    <div class="hero">
-      <div class="hero-emoji">📣</div>
-      <h1 class="hero-title">Marketing – Exam Prep</h1>
-      <p class="hero-sub">TSUE · 2025–2026 · ${ALL_Q.length} Questions · 4 Study Modes</p>
-      <div class="hero-chips">
-        <span class="chip">📝 ${ALL_Q.length} Questions</span>
-        <span class="chip">🗂 ${GROUPS.length} Sections</span>
-        <span class="chip">🎯 4 Modes</span>
-        <span class="chip">⏱ 45 min each</span>
-      </div>
-    </div>
-
-    <div class="qb" onclick="startReal()">
-      <div class="qb-orb"></div><div class="qb-orb2"></div>
-      <div class="qb-row">
-        <div class="qb-ico">🎯</div>
-        <div>
-          <div class="qb-name">Quick Real Exam</div>
-          <div class="qb-desc">25 questions chosen at random from all ${ALL_Q.length} — a fresh mix every time</div>
-        </div>
-      </div>
-      <div class="qb-tags">
-        <span class="qb-tag">🎲 Random 25 / ${ALL_Q.length}</span>
-        <span class="qb-tag">⏱ 45 minutes</span>
-        <span class="qb-tag">⚡ One click</span>
-      </div>
-      <button class="qb-go">▶ Start Now</button>
-    </div>
-
-    <div class="sec-wrap">
-      <div class="sec-lbl">🎲 Exam Slots — 25 random questions, score saved per slot</div>
-      <div class="slots-grid">${slots}</div>
-    </div>
-
-    <div class="sec-wrap">
-      <div class="sec-lbl">⚡ Quiz Mode — instant ✓/✗ feedback after each answer</div>
-      <div class="modes-grid">${quiz}</div>
-    </div>
-
-    <div class="sec-wrap">
-      <div class="sec-lbl">📋 Practice Tests — timed 45 min, full review at the end</div>
-      <div class="modes-grid">${practice}</div>
-    </div>
-  </div></div>`;
-}
-
-function buildTest(){
-  const isQ=ST.mode==='quiz',isV=ST.mode==='real'||ST.mode==='slot';
-  const q=ST.shuffled[ST.cur],total=ST.shuffled.length;
-  const answered=Object.keys(ST.sel).length;
-
-  const nav=ST.shuffled.map((_,i)=>{
-    let cls='qn';
-    if(isQ){cls+=i===ST.cur?' q-cur':ST.sel[i]!==undefined?' q-ans':'';}
-    else if(isV){cls+=i===ST.cur?' v-cur':ST.sel[i]!==undefined?' v-ans':'';}
-    else{cls+=i===ST.cur?' p-cur':ST.sel[i]!==undefined?' p-ans':'';}
-    return `<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
-  }).join('');
-
-  let ansHtml='';
-  if(isQ&&ST.quizAnswered){
-    ansHtml=q.a.map((a,ai)=>{
-      let cls='ans-btn locked';
-      if(ai===q.ci)cls+=' q-correct';
-      else if(ai===ST.quizSelected)cls+=' q-wrong';
-      return `<button class="${cls}"><span class="ans-letter">${LETTERS[ai]}</span><span class="ans-text">${esc(a)}</span></button>`;
-    }).join('');
-  }else{
-    ansHtml=q.a.map((a,ai)=>{
-      const sel=ST.sel[ST.cur]===ai;
-      let cls='ans-btn';if(sel)cls+=isV?' sel-v':' sel-p';
-      return `<button class="${cls}" onclick="selectAns(${ai})"><span class="ans-letter">${LETTERS[ai]}</span><span class="ans-text">${esc(a)}</span></button>`;
-    }).join('');
-  }
-
-  let feedbackHtml='';
-  if(isQ&&ST.quizAnswered){
-    const ok=ST.quizSelected===q.ci;
-    const isLast=ST.cur===total-1;
-    feedbackHtml=`<div class="q-feedback ${ok?'correct':'wrong'}">
-      <span class="qfb-ico">${ok?'🎉':'💡'}</span>
-      <span>${ok?'Correct! Well done.':'Incorrect — correct answer shown in green.'}</span>
-    </div>
-    <div class="nav-row" style="justify-content:flex-end">
-      <button class="quiz-next-btn" onclick="${isLast?'submitTest()':'quizNext()'}">${isLast?'See Results':'Next →'}</button>
-    </div>`;
-  }
-
-  let navHtml='';
-  if(!(isQ&&ST.quizAnswered)&&!isQ){
-    const finCls=isV?'v':'p';
-    const right=ST.cur<total-1
-      ?`<button class="nav-next" onclick="gotoQ(${ST.cur+1})">Next →</button>`
-      :`<button class="nav-fin ${finCls}" onclick="submitTest()">✓ Submit</button>`;
-    navHtml=`<div class="nav-row">
-      <button class="nav-prev" onclick="gotoQ(${ST.cur-1})" ${ST.cur===0?'disabled':''}>← Prev</button>
-      ${right}
-    </div>`;
-  }
-  if(isQ&&!ST.quizAnswered){
-    navHtml=`<div class="nav-row">
-      <button class="nav-prev" onclick="gotoQ(${ST.cur-1})" ${ST.cur===0?'disabled':''}>← Prev</button>
-    </div>`;
-  }
-
-  const isReal=ST.mode==='real',isSlot=ST.mode==='slot';
-  const modeName=isQ?`Quiz ${ST.grpIdx+1}`:isReal?'Quick Real Exam':isSlot?`Exam Slot #${ST.slotIdx+1}`:`Practice Test ${ST.grpIdx+1}`;
-  const badgeCls=isQ?'b-quiz':isV?'b-real':'b-prac';
-  const badgeLbl=isQ?'QUIZ':isReal?'REAL EXAM':isSlot?`SLOT ${ST.slotIdx+1}`:'PRACTICE';
-  const qboxCls=isV?' v-q':isQ?' quiz-q':'';
-  const pillCls=isV?'pill-v':isQ?'pill-quiz':'pill-p';
-  const pillLbl=isReal?'REAL':isSlot?'SLOT':isQ?'QUIZ':'PRACTICE';
-  const tColor=tc(ST.timeLeft);
-  const tPct=(ST.timeLeft/TSEC*100).toFixed(1);
-  const timerHtml=isQ
-    ?`<div style="color:#475569;font-size:12px;font-weight:600">No Timer</div>`
-    :`<div class="timer-block"><div class="timer-val" style="color:${tColor}">${fmt(ST.timeLeft)}</div><div class="timer-rail"><div class="timer-fill" style="width:${tPct}%;background:${tColor}"></div></div></div>`;
-  const subBtnHtml=isQ?'':`<button class="sub-btn sb-${isV?'real':'prac'}" onclick="submitTest()">Submit</button>`;
-
-  return `<div class="test-screen">
-    <div class="topbar">
-      <div class="tb-left">
-        <button class="back-btn" onclick="goHome()">←</button>
-        <div class="tb-info">
-          <div class="tb-title">${modeName}<span class="tb-badge ${badgeCls}">${badgeLbl}</span></div>
-          <div class="tb-sub">${answered}/${total} answered</div>
-        </div>
-      </div>
-      ${timerHtml}
-      ${subBtnHtml}
-    </div>
-    <div class="test-body">
-      <div class="qnav">${nav}</div>
-      <div class="qbox${qboxCls}">
-        <div class="q-meta">QUESTION ${ST.cur+1} OF ${total}<span class="q-pill ${pillCls}">${pillLbl}</span></div>
-        <p class="q-text">${esc(q.q)}</p>
-      </div>
-      <div class="answers">${ansHtml}</div>
-      ${feedbackHtml}
-      ${navHtml}
-    </div>
-  </div>`;
-}
-
-function buildResults(){
-  const total=ST.shuffled.length,sc=ST.score;
-  const pct=Math.round(sc/total*100);
-  const gc=pct>=90?'#10b981':pct>=75?'#c084fc':pct>=60?'#f59e0b':'#ef4444';
-  const grade=pct>=90?'Excellent 🏆':pct>=75?'Good Pass 👍':pct>=60?'Satisfactory ✔️':'Needs Practice 📖';
-  const isQ=ST.mode==='quiz',isReal=ST.mode==='real',isSlot=ST.mode==='slot';
-  const isV=isReal||isSlot;
-  const modeName=isQ?`Quiz ${ST.grpIdx+1}`:isReal?'Quick Real Exam':isSlot?`Exam Slot #${ST.slotIdx+1}`:`Practice Test ${ST.grpIdx+1}`;
-  const retakeFn=isQ?`startQuiz(${ST.grpIdx})`:isReal?'startReal()':isSlot?`startSlot(${ST.slotIdx})`:`startPractice(${ST.grpIdx})`;
-  const retakeLbl=isQ?'🔄 Retry Quiz':isV?'🔄 New Exam':'🔄 Retake Test';
-  const modeCls=isQ?'quiz':isV?'real':'prac';
-  const modeLbl=isQ?'⚡ QUIZ MODE':isReal?'🎯 QUICK REAL EXAM':isSlot?'🎲 EXAM SLOT':'📋 PRACTICE TEST';
-  return `<div class="results"><div class="res-inner">
-    <div class="res-top">
-      <div class="res-ico">${pct>=60?'🎉':'📖'}</div>
-      <div class="res-badge rb-${modeCls}">${modeLbl}</div>
-      <h2 class="res-title">${modeName} Complete</h2>
-      <p class="res-sub">Your results are below</p>
-    </div>
-    <div class="score-card" style="border-color:${gc}35">
-      <div class="score-pct" style="color:${gc}">${pct}%</div>
-      <div class="score-grade" style="color:${gc}">${grade}</div>
-      <div class="score-stats">
-        <div><div class="stat-v" style="color:#10b981">${sc}</div><div class="stat-l">Correct</div></div>
-        <div><div class="stat-v" style="color:#ef4444">${total-sc}</div><div class="stat-l">Wrong</div></div>
-        <div><div class="stat-v" style="color:#64748b">${total}</div><div class="stat-l">Total</div></div>
-      </div>
-      <div class="score-bar-bg"><div class="score-bar-fill" style="width:${pct}%;background:${gc}"></div></div>
-    </div>
-    <div class="res-btns">
-      <button class="btn-review" onclick="goReview()">📋 Review All</button>
-      <button class="btn-retry br-${modeCls}" onclick="${retakeFn}">${retakeLbl}</button>
-    </div>
-    <button class="btn-home-out" onclick="goHome()">← Back to Home</button>
-  </div></div>`;
-}
-
-function buildReview(){
-  const total=ST.shuffled.length,sc=ST.score,pct=Math.round(sc/total*100);
-  const isQ=ST.mode==='quiz',isReal=ST.mode==='real',isSlot=ST.mode==='slot';
-  const modeName=isQ?`Quiz ${ST.grpIdx+1}`:isReal?'Quick Real Exam':isSlot?`Exam Slot #${ST.slotIdx+1}`:`Practice Test ${ST.grpIdx+1}`;
-  const items=ST.shuffled.map((q,qi)=>{
-    const ua=ST.sel[qi],ok=ua===q.ci,skip=ua===undefined;
-    const lbl=ok?'✓ CORRECT':skip?'— SKIPPED':'✗ WRONG';
-    const lc=ok?'#10b981':skip?'#64748b':'#ef4444';
-    const lb=ok?'rgba(16,185,129,.12)':skip?'rgba(100,116,139,.1)':'rgba(239,68,68,.12)';
-    const rows=q.a.map((a,ai)=>{
-      const isC=ai===q.ci,isU=ai===ua&&!isC;
-      let cls='ro';if(isC)cls+=' correct';else if(isU)cls+=' wrong';
-      return `<div class="${cls}"><span class="ro-l">${LETTERS[ai]}</span><span class="ro-t">${esc(a)}</span>${isC?'<span class="ro-ico">✓</span>':isU?'<span class="ro-ico">✗</span>':''}</div>`;
-    }).join('');
-    return `<div class="rq" style="border-color:${lc}28">
-      <div class="rq-top"><span class="rq-num">Q${qi+1}</span><span class="rq-tag" style="color:${lc};background:${lb}">${lbl}</span></div>
-      <p class="rq-text">${esc(q.q)}</p>
-      <div class="rq-opts">${rows}</div>
-    </div>`;
-  }).join('');
-  return `<div class="review"><div class="rev-inner">
-    <div class="rev-hdr">
-      <button style="background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;padding:4px 8px" onclick="goResults()">←</button>
-      <div><div class="rev-title">${modeName} — Review</div><div class="rev-sub">${sc}/${total} correct · ${pct}%</div></div>
-    </div>
-    ${items}
-    <button class="btn-back-rev" onclick="goResults()">← Back to Results</button>
-  </div></div>`;
-}
-
-function startTimer(){
-  if(ST.timer)clearInterval(ST.timer);
-  ST.timer=setInterval(()=>{
-    ST.timeLeft--;
-    const tv=document.querySelector('.timer-val');
-    const tf=document.querySelector('.timer-fill');
-    const t=tc(ST.timeLeft);
-    if(tv){tv.style.color=t;tv.textContent=fmt(ST.timeLeft);}
-    if(tf){tf.style.width=(ST.timeLeft/TSEC*100).toFixed(1)+'%';tf.style.background=t;}
-    if(ST.timeLeft<=0){clearInterval(ST.timer);doSubmit();}
-  },1000);
-}
-
-window.startReal=()=>{if(ST.timer)clearInterval(ST.timer);ST={...ST,screen:'test',mode:'real',grpIdx:null,slotIdx:null,shuffled:prep(rnd25()),cur:0,sel:{},timeLeft:TSEC,score:null,timer:null,quizAnswered:false,quizSelected:-1};render();startTimer();};
-window.startSlot=(idx)=>{if(ST.timer)clearInterval(ST.timer);ST={...ST,screen:'test',mode:'slot',grpIdx:null,slotIdx:idx,shuffled:prep(rnd25()),cur:0,sel:{},timeLeft:TSEC,score:null,timer:null,quizAnswered:false,quizSelected:-1};render();startTimer();};
-window.startPractice=(idx)=>{if(ST.timer)clearInterval(ST.timer);ST={...ST,screen:'test',mode:'practice',grpIdx:idx,slotIdx:null,shuffled:prep(GROUPS[idx]),cur:0,sel:{},timeLeft:TSEC,score:null,timer:null,quizAnswered:false,quizSelected:-1};render();startTimer();};
-window.startQuiz=(idx)=>{if(ST.timer)clearInterval(ST.timer);ST={...ST,screen:'test',mode:'quiz',grpIdx:idx,slotIdx:null,shuffled:prep(GROUPS[idx]),cur:0,sel:{},timeLeft:TSEC,score:null,timer:null,quizAnswered:false,quizSelected:-1};render();};
-window.gotoQ=(i)=>{if(i<0||i>=ST.shuffled.length)return;ST.cur=i;if(ST.mode==='quiz'){ST.quizAnswered=ST.sel[i]!==undefined;ST.quizSelected=ST.sel[i]!==undefined?ST.sel[i]:-1;}render();if(ST.mode!=='quiz')startTimer();};
-window.selectAns=(ai)=>{
-  if(ST.mode==='quiz'){if(ST.quizAnswered)return;ST.sel={...ST.sel,[ST.cur]:ai};ST.quizAnswered=true;ST.quizSelected=ai;render();}
-  else{
-    ST.sel={...ST.sel,[ST.cur]:ai};
-    const isV=ST.mode==='real'||ST.mode==='slot';
-    const q=ST.shuffled[ST.cur];
-    const cont=document.querySelector('.answers');
-    if(cont){cont.innerHTML=q.a.map((a,idx)=>{const sel=ST.sel[ST.cur]===idx;let cls='ans-btn';if(sel)cls+=isV?' sel-v':' sel-p';return `<button class="${cls}" onclick="selectAns(${idx})"><span class="ans-letter">${LETTERS[idx]}</span><span class="ans-text">${esc(a)}</span></button>`;}).join('');}
-    document.querySelectorAll('.qn').forEach((el,i)=>{el.className='qn';const iC=i===ST.cur,iA=ST.sel[i]!==undefined;if(isV){if(iC)el.classList.add('v-cur');else if(iA)el.classList.add('v-ans');}else{if(iC)el.classList.add('p-cur');else if(iA)el.classList.add('p-ans');}});
-    const sub=document.querySelector('.tb-sub');if(sub)sub.textContent=Object.keys(ST.sel).length+'/'+ST.shuffled.length+' answered';
-  }
-};
-window.quizNext=()=>{const next=ST.cur+1;if(next>=ST.shuffled.length){submitTest();return;}ST.cur=next;ST.quizAnswered=ST.sel[next]!==undefined;ST.quizSelected=ST.sel[next]!==undefined?ST.sel[next]:-1;render();};
-window.submitTest=doSubmit;
-function doSubmit(){if(ST.timer)clearInterval(ST.timer);let c=0;ST.shuffled.forEach((q,i)=>{if(ST.sel[i]===q.ci)c++;});ST.score=c;if(ST.mode==='slot'&&ST.slotIdx!==null)slotScores[ST.slotIdx]={c,t:ST.shuffled.length};ST.screen='results';render();}
-window.goHome=()=>{if(ST.timer)clearInterval(ST.timer);ST.screen='home';render();};
-window.goReview=()=>{ST.screen='review';render();};
-window.goResults=()=>{ST.screen='results';render();};
-
-render();
-</script></body></html>
+<div class="page">
+  <div class="hero">
+    <div class="hero-emoji">🎓</div>
+    <h1 class="hero-title">Exam Prep</h1>
+    <p class="hero-sub">TSUE · 2025–2026 · Choose your subject</p>
+  </div>
+  <div class="cards">
+    <a href="marketing.html" class="card card-m">
+      <div class="card-orb"></div>
+      <div class="card-ico">📣</div>
+      <div class="card-title">Marketing</div>
+      <div class="card-desc">4 study modes · 525 questions · timed exam simulation</div>
+      <div class="card-btn">Start →</div>
+    </a>
+    <a href="accounting.html" class="card card-a">
+      <div class="card-orb"></div>
+      <div class="card-ico">📊</div>
+      <div class="card-title">Accounting</div>
+      <div class="card-desc">4 study modes · exam questions · timed exam simulation</div>
+      <div class="card-btn">Start →</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
